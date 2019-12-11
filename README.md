@@ -8,7 +8,3 @@ if docker-compose.yml or Dockerfile is changed,
 
 docker-compose run app sh -c "command here"
 docker-compose --rm > for services run once, avoid to linger on a system after it's ran
-
-#######
-from django.contrib.auth import get_user_model
-> get_user_model get model is definded in settings.AUTH_USER_MODEL

@@ -1,5 +1,5 @@
-# recipe-app-api
-Recipe app api source code
+# Blog-api
+Blog-api app source code
 
 # note
 if docker-compose.yml or Dockerfile is changed,

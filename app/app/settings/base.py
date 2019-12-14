@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,15 +52,16 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'app.urls'
 
@@ -133,10 +135,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = '/vol/web/static' #root('vol', 'web', 'static')
-
+STATICFILES_DIRS = (root('static'),)
+STATIC_ROOT = root('static', 'skin')
 
 # config media files
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/vol/web/media' #root('vol', 'web', 'media')
+MEDIA_ROOT = root('static', 'media')
 AUTH_USER_MODEL = 'core.User'
+
+# SUIT CONFIG
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Blog Admin',
+    'LIST_PER_PAGE': 15,
+    'CONFIRM_UNSAVED_CHANGES': True,
+    'MENU_OPEN_FIRST_CHILD': True,
+}

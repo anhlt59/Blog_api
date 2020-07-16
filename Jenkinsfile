@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage ("Deploy") {
             steps {
-                sh 'docker-compose up -d'
+                sh 'docker build -t test:lastest'
+                sh 'docker run --rm -d test:lastest'
             }
         }
     }
